@@ -19,6 +19,7 @@ logging.basicConfig(format='%(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO,
                     filename='bot.log')
 
+import settings
 import ephem
 
 def greet_user(update, context):
@@ -50,7 +51,7 @@ def input_planet(update, context):
     update.message.reply_text(const)
 
 def main():
-    mybot = Updater('5584662025:AAHn725jeSmYjr_z8pKem0zEU4zq9Mkhnts', use_context=True)
+    mybot = Updater(settings.API_KEY, use_context=True)
 
     dp = mybot.dispatcher
     dp.add_handler(CommandHandler("start", greet_user))
